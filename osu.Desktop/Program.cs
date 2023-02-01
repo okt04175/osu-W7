@@ -35,9 +35,9 @@ namespace osu.Desktop
             {
                 var windowsVersion = Environment.OSVersion.Version;
 
-                // While .NET 6 still supports Windows 7 and above, we are limited by realm currently, as they choose to only support 8.1 and higher.
+                // While .NET 6 still supports Windows 7 and above, they are limited by realm currently, as they choose to only support 8.1 and higher. (But should not block old Windows , user can use some methods to run it.)
                 // See https://www.mongodb.com/docs/realm/sdk/dotnet/#supported-platforms
-                if (windowsVersion.Major < 6 || (windowsVersion.Major == 6 && windowsVersion.Minor <= 2))
+                if (windowsVersion.Major < 5 || (windowsVersion.Major == 5 && windowsVersion.Minor <= 0))
                 {
                     // If users running in compatibility mode becomes more of a common thing, we may want to provide better guidance or even consider
                     // disabling it ourselves.
@@ -45,7 +45,7 @@ namespace osu.Desktop
                     // https://stackoverflow.com/questions/10744651/how-i-can-detect-if-my-application-is-running-under-compatibility-mode#comment58183249_10744730
                     SDL.SDL_ShowSimpleMessageBox(SDL.SDL_MessageBoxFlags.SDL_MESSAGEBOX_ERROR,
                         "Your operating system is too old to run osu!",
-                        "This version of osu! requires at least Windows 8.1 to run.\n"
+                        "This version of osu! requires at least Windows 2000 to run.\n"
                         + "Please upgrade your operating system or consider using an older version of osu!.\n\n"
                         + "If you are running a newer version of windows, please check you don't have \"Compatibility mode\" turned on for osu!", IntPtr.Zero);
                     return;
