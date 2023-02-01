@@ -35,7 +35,7 @@ namespace osu.Desktop
             {
                 var windowsVersion = Environment.OSVersion.Version;
 
-                // While .NET 6 still supports Windows 7 and above, they are limited by realm currently, as they choose to only support 8.1 and higher. (But should not block old Windows , user can use some methods to run it.)
+                // While .NET 6 still supports Windows 7 and above, they are limited by realm currently, as they choose to only support 8.1 and higher. (But I don't care, should not block old Windows , user can use some methods to run it.)
                 // See https://www.mongodb.com/docs/realm/sdk/dotnet/#supported-platforms
                 if (windowsVersion.Major < 5 || (windowsVersion.Major == 5 && windowsVersion.Minor <= 0))
                 {
